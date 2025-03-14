@@ -1,17 +1,22 @@
 package ca.ulaval.ima.tp3.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import ca.ulaval.ima.tp3.CarDataService
+import ca.ulaval.ima.tp3.ModelsActivity
 import ca.ulaval.ima.tp3.R
+import ca.ulaval.ima.tp3.adapters.BrandsAdapter
 import ca.ulaval.ima.tp3.databinding.FragmentBrandsBinding
-import ca.ulaval.ima.tp3.adapters.BrandAdapter
 
 class BrandsFragment : Fragment() {
     private lateinit var binding: FragmentBrandsBinding
+    private lateinit var carDataService: CarDataService
+    private lateinit var brandsAdapter: BrandsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentBrandsBinding.inflate(inflater, container, false)
@@ -19,21 +24,21 @@ class BrandsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        println("BrandsFragment.onViewCreated")
         super.onViewCreated(view, savedInstanceState)
 
-        // Simuler une liste de marques
-        val brands = listOf("Toyota", "Honda", "Ford")
+        carDataService = CarDataService(requireContext())
+        val brands = carDataService.getBrands()
 
-        // Configurer un adaptateur pour afficher les marques
+        brandsAdapter = BrandsAdapter(brands) { brand ->
+            val intent = Intent(context, ModelsActivity::class.java)
+            intent.putExtra("brandId", brand.id)
+            startActivity(intent)
+        }
+
         binding.recyclerViewBrands.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = BrandAdapter(brands) { brand ->
-                val fragment = OffresFragment.newInstance(brand)
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.view_pager, fragment)
-                    .addToBackStack(null)
-                    .commit()
-            }
+            adapter = brandsAdapter
         }
     }
 }

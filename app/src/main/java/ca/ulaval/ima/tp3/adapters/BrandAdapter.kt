@@ -1,31 +1,36 @@
 package ca.ulaval.ima.tp3.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import ca.ulaval.ima.tp3.databinding.ItemBrandBinding
+import ca.ulaval.ima.tp3.R
+import ca.ulaval.ima.tp3.models.Brand
 
-class BrandAdapter(private val brands: List<String>, private val onBrandSelected: (String) -> Unit) : RecyclerView.Adapter<BrandAdapter.BrandViewHolder>() {
-    class BrandViewHolder(private val binding: ItemBrandBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(brand: String, onBrandSelected: (String) -> Unit) {
-            println("Binding brand $brand")
-            binding.brand = brand
-            binding.root.setOnClickListener {
-                onBrandSelected(brand)
-            }
-        }
+class BrandsAdapter(
+    private val brands: List<Brand>,
+    private val onBrandClick: (Brand) -> Unit
+) : RecyclerView.Adapter<BrandsAdapter.BrandViewHolder>() {
+
+    class BrandViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val brandNameTextView: TextView = itemView.findViewById(R.id.brandNameTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandViewHolder {
-        val binding = ItemBrandBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return BrandViewHolder(binding)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_brand, parent, false)
+        return BrandViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BrandViewHolder, position: Int) {
-        holder.bind(brands[position], onBrandSelected)
+        val brand = brands[position]
+        holder.brandNameTextView.text = brand.name
+
+        holder.itemView.setOnClickListener {
+            onBrandClick(brand)
+        }
     }
 
-    override fun getItemCount(): Int {
-        return brands.size
-    }
+    override fun getItemCount(): Int = brands.size
 }

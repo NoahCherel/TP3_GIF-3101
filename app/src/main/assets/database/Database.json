@@ -1,0 +1,105 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "name": "Renault",
+      "models": [
+        {
+          "id": 101,
+          "brandId": 1,
+          "name": "Clio",
+          "offers": [
+            {
+              "id": 1001,
+              "year": 2020,
+              "price": 13500,
+              "kilometers": 32000,
+              "description": "Renault Clio IV",
+              "transmissions": "Manuelle",
+              "imageUrl": "https://images.caradisiac.com/logos-ref/modele/modele--renault-clio-4/S8-modele--renault-clio-4.jpg",
+              "sellerEmail": "jean.dupont@email.com",
+              "sellerName": "Jean Dupont",
+              "sellerProprio": "oui",
+              "isMyOffer": false,
+              "brandId": 1,
+              "modelId": 101
+            },
+            {
+              "id": 1002,
+              "year": 2018,
+              "price": 10200,
+              "kilometers": 54000,
+              "description": "Renault Clio III",
+              "transmissions": "Automatique",
+              "imageUrl": "https://nitrocar.fr/cdn/shop/files/WhatsAppImage2024-05-21a19.13.30_0ecff9ae_1200x1200.jpg",
+              "sellerEmail": "marie.martin@email.com",
+              "sellerName": "Marie Martin",
+              "sellerProprio": "non",
+              "isMyOffer": false,
+              "brandId": 1,
+              "modelId": 101
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "brandId": 1,
+          "name": "Megane",
+          "offers": [
+            {
+              "id": 1003,
+              "year": 2019,
+              "price": 15800,
+              "kilometers": 42000,
+              "description": "Renault Megane III",
+              "transmissions": "Manuelle",
+              "imageUrl": "https://images.caradisiac.com/logos-ref/modele/modele--renault-megane-3/S8-modele--renault-megane-3.jpg",
+              "sellerEmail": "pierre.durand@email.com",
+              "sellerName": "Pierre Durand",
+              "sellerProprio": "oui",
+              "isMyOffer": false,
+              "brandId": 1,
+              "modelId": 102
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Peugeot",
+      "models": [
+        {
+          "id": 201,
+          "brandId": 2,
+          "name": "208",
+          "offers": [
+            {
+              "id": 2001,
+              "year": 2021,
+              "price": 16500,
+              "kilometers": 22000,
+              "description": "Peugeot 208",
+              "transmissions": "Automatique",
+              "imageUrl": "https://www.peugeot.co.uk/content/dam/peugeot/master/b2c/our-range/showroom/208/2024-06-new-208-white-label/new-e-208-white-label/E_208_GT.png",
+              "sellerEmail": "sophie.blanc@email.com",
+              "sellerName": "Sophie Blanc",
+              "sellerProprio": "non",
+              "isMyOffer": true,
+              "brandId": 2,
+              "modelId": 201
+            }
+          ]
+        },
+        {
+          "id": 202,
+          "brandId": 2,
+          "name": "308",
+          "offers": []
+        }
+      ]
+    }
+  ],
+  "myOffers": [
+  ]
+}

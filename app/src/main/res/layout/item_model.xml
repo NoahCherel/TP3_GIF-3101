@@ -6,11 +6,10 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/brandNameTextView"
+        android:id="@+id/modelNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

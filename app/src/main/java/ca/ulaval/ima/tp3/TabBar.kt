@@ -12,15 +12,14 @@ import ca.ulaval.ima.tp3.fragments.AnnonceFragment
 import ca.ulaval.ima.tp3.fragments.BrandsFragment
 import ca.ulaval.ima.tp3.fragments.VentesFragment
 
-class SectionsPagerAdapter(private val context: android.content.Context, fm: FragmentManager) :
-    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class SectionsPagerAdapter(private val context: android.content.Context, fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> BrandsFragment()
             1 -> VentesFragment()
             2 -> AnnonceFragment()
-            else -> BrandsFragment()
+            else -> AnnonceFragment()
         }
     }
 
@@ -38,21 +37,38 @@ class SectionsPagerAdapter(private val context: android.content.Context, fm: Fra
     }
 }
 
-class TabBar : AppCompatActivity() {
+class TabBar : AppCompatActivity(), VentesFragment.OfferAddedListener {
 
     private lateinit var binding: ActivityTabBarBinding
+    lateinit var carDataService: CarDataService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println("TabBar.onCreate")
+
+        carDataService = CarDataService(this)
+        carDataService.loadData()
+        carDataService.clearData()
 
         binding = ActivityTabBarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sectionsPagerAdapter = ca.ulaval.ima.tp3.SectionsPagerAdapter(this, supportFragmentManager)
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
         tabs.tabTextColors = resources.getColorStateList(R.color.white, theme)
         tabs.setupWithViewPager(viewPager)
+    }
+
+    override fun onOfferAdded() {
+        val adapter = binding.viewPager.adapter as? SectionsPagerAdapter
+        adapter?.let {
+            val annonceFragment = it.getItem(0) as? AnnonceFragment
+            annonceFragment?.onResume()
+
+            val mesAnnoncesFragment = it.getItem(2) as? AnnonceFragment
+            mesAnnoncesFragment?.onResume()
+        }
     }
 }

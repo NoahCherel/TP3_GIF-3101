@@ -1,17 +1,30 @@
 package ca.ulaval.ima.tp3.models
 
-data class CarBrand(val id: String, val name: String, val logo: String? = null)
+data class Brand(
+    val id: Int,
+    val name: String,
+    val models: List<Model> = emptyList()
+)
 
-data class CarModel(val id: String, val brandId: String, val name: String, val image: String? = null)
+data class Model(
+    val id: Int,
+    val brandId: Int,
+    val name: String,
+    val offers: List<CarOffer> = emptyList()
+)
 
-data class Offer(
-    val id: String,
-    val modelId: String,
-    val title: String,
-    val price: Double,
+data class CarOffer(
+    val id: Int,
+    val year: Int,
+    val price: Int,
+    val kilometers: Int,
     val description: String,
-    val sellerName: String,
-    val sellerEmail: String,
+    val transmissions: String,
     val imageUrl: String,
-    val features: List<String>
+    val sellerEmail: String,
+    val sellerName: String,
+    val sellerProprio: String,
+    val isMyOffer: Boolean = false,
+    val brandId: Int? = null,
+    val modelId: Int? = null
 )

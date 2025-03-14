@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Car Image -->
+    <ImageView
+        android:id="@+id/carImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
+    <!-- Car Details Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:text="Informations de la voiture:" />
+
+    <!-- Car Details Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <!-- Marque - Label -->
+        <TextView
+            android:id="@+id/carNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modèle:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Marque - Value -->
+        <TextView
+            android:id="@+id/carNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acura MDX"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/carNameLabel"
+            app:layout_constraintTop_toTopOf="@+id/carNameLabel" />
+
+        <!-- Année - Label -->
+        <TextView
+            android:id="@+id/yearLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Année:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carNameLabel" />
+
+        <!-- Année - Value -->
+        <TextView
+            android:id="@+id/yearValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2015"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/yearLabel"
+            app:layout_constraintTop_toTopOf="@+id/yearLabel" />
+
+        <!-- Kilometres - Label -->
+        <TextView
+            android:id="@+id/kilometersLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="Kilométrage:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/yearLabel" />
+
+        <!-- Kilometres - Value -->
+        <TextView
+            android:id="@+id/kilometersValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111 428 km"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/kilometersLabel"
+            app:layout_constraintTop_toTopOf="@+id/kilometersLabel" />
+
+        <!-- Transmission - Label -->
+        <TextView
+            android:id="@+id/transmissionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="Transmission:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kilometersLabel" />
+
+        <!-- Transmission - Value -->
+        <TextView
+            android:id="@+id/transmissionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manuel"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/transmissionLabel"
+            app:layout_constraintTop_toTopOf="@+id/transmissionLabel" />
+
+        <!-- Prix - Label -->
+        <TextView
+            android:id="@+id/priceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Prix:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transmissionLabel" />
+
+        <!-- Prix - Value -->
+        <TextView
+            android:id="@+id/priceValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 500$"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/priceLabel"
+            app:layout_constraintTop_toTopOf="@+id/priceLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Seller Header -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Vendeur"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Seller Container -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sellerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <!-- Nom - Label -->
+        <TextView
+            android:id="@+id/sellerNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nom - Value -->
+        <TextView
+            android:id="@+id/sellerNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mathieu Juneau"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/sellerNameLabel"
+            app:layout_constraintTop_toTopOf="@+id/sellerNameLabel" />
+
+        <!-- Courriel - Label -->
+        <TextView
+            android:id="@+id/sellerEmailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="Courriel:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sellerNameLabel" />
+
+        <!-- Courriel - Value -->
+        <TextView
+            android:id="@+id/sellerEmailValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="john.doe@example.com"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/sellerEmailLabel"
+            app:layout_constraintTop_toTopOf="@+id/sellerEmailLabel" />
+
+        <!-- Propriétaire - Label -->
+        <TextView
+            android:id="@+id/sellerPropertyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="Propriétaire:"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sellerEmailLabel" />
+
+        <!-- Propriétaire - Value -->
+        <TextView
+            android:id="@+id/sellerPropertyValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/sellerPropertyLabel"
+            app:layout_constraintTop_toTopOf="@+id/sellerPropertyLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Contact Button -->
+    <Button
+        android:id="@+id/contactButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/red"
+        android:paddingVertical="12dp"
+        android:text="Contacter le vendeur"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>
